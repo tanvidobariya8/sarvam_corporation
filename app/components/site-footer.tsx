@@ -123,6 +123,10 @@ export function SiteFooter() {
               <span className="break-all">info@sarvamcorporation.com</span>
             </li>
             <li className="flex gap-3">
+              <MessageCircle className="mt-0.5 size-5 shrink-0 text-orange-600 dark:text-orange-300" />
+              <span className="break-all">Hardik9537111038</span>
+            </li>
+            <li className="flex gap-3">
               <MapPin className="mt-0.5 size-5 shrink-0 text-orange-600 dark:text-orange-300" />
               <span>
                 B-212, Shivalik Plaza, Kapodra To Utran Bridge, Mota Varachha,

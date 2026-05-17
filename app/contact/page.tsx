@@ -5,6 +5,7 @@ import {
   Mail,
   MapPin,
   MessageCircle,
+  MessageCircleCheck,
   Package,
   Phone,
   Send,
@@ -69,6 +70,12 @@ const contactCards = [
     href: "https://www.google.com/maps/search/?api=1&query=B-212%20Shivalik%20Plaza%20Mota%20Varachha%20Surat%20394105",
     icon: MapPin,
   },
+  {
+    title: "We Chat",
+    value: "Hardik9537111038",
+    href: "",
+    icon: MessageCircleCheck,
+  },
 ];
 
 function buildInquiryMessage(form: FormState) {
@@ -101,7 +108,7 @@ export default function ContactPage() {
 
   const inquiryMessage = useMemo(() => buildInquiryMessage(form), [form]);
   const emailHref = `mailto:${companyEmail}?subject=${encodeURIComponent(
-    `Import Quote Inquiry - ${form.productName || "China to India"}`
+    `Import Quote Inquiry - ${form.productName || "China to India"}`,
   )}&body=${encodeURIComponent(inquiryMessage)}`;
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(inquiryMessage)}`;
 
@@ -127,8 +134,9 @@ export default function ContactPage() {
               Share your import requirement and get a clear quote.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-7 text-slate-700 dark:text-slate-300">
-              Send product details, supplier link, quantity, and delivery city. Sarvam
-              Corporation will guide you with the right China-to-India shipping option.
+              Send product details, supplier link, quantity, and delivery city.
+              Sarvam Corporation will guide you with the right China-to-India
+              shipping option.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -139,7 +147,9 @@ export default function ContactPage() {
                     key={card.title}
                     href={card.href}
                     target={card.href.startsWith("http") ? "_blank" : undefined}
-                    rel={card.href.startsWith("http") ? "noreferrer" : undefined}
+                    rel={
+                      card.href.startsWith("http") ? "noreferrer" : undefined
+                    }
                     className="rounded-lg border border-orange-100 bg-orange-50/60 p-5 transition hover:border-orange-300 hover:bg-orange-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-orange-500/70"
                   >
                     <Icon className="size-6 text-orange-600 dark:text-orange-300" />
@@ -162,8 +172,9 @@ export default function ContactPage() {
                     What details help us quote faster?
                   </h2>
                   <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
-                    Product name, quantity, supplier link, shipment urgency, and delivery city
-                    are enough to start. If you are new to importing, choose “Need guidance”.
+                    Product name, quantity, supplier link, shipment urgency, and
+                    delivery city are enough to start. If you are new to
+                    importing, choose “Need guidance”.
                   </p>
                 </div>
               </div>
@@ -193,7 +204,9 @@ export default function ContactPage() {
                 <input
                   required
                   value={form.fullName}
-                  onChange={(event) => updateField("fullName", event.target.value)}
+                  onChange={(event) =>
+                    updateField("fullName", event.target.value)
+                  }
                   className={inputClassName}
                   placeholder="Your name"
                 />
@@ -219,7 +232,9 @@ export default function ContactPage() {
               <FormField label="Company Name">
                 <input
                   value={form.companyName}
-                  onChange={(event) => updateField("companyName", event.target.value)}
+                  onChange={(event) =>
+                    updateField("companyName", event.target.value)
+                  }
                   className={inputClassName}
                   placeholder="Business name"
                 />
@@ -228,7 +243,9 @@ export default function ContactPage() {
                 <input
                   required
                   value={form.productName}
-                  onChange={(event) => updateField("productName", event.target.value)}
+                  onChange={(event) =>
+                    updateField("productName", event.target.value)
+                  }
                   className={inputClassName}
                   placeholder="Example: LED lights, machine parts"
                 />
@@ -236,7 +253,9 @@ export default function ContactPage() {
               <FormField label="Product Category">
                 <input
                   value={form.category}
-                  onChange={(event) => updateField("category", event.target.value)}
+                  onChange={(event) =>
+                    updateField("category", event.target.value)
+                  }
                   className={inputClassName}
                   placeholder="Electronics, textile, machinery..."
                 />
@@ -245,7 +264,9 @@ export default function ContactPage() {
                 <input
                   required
                   value={form.quantity}
-                  onChange={(event) => updateField("quantity", event.target.value)}
+                  onChange={(event) =>
+                    updateField("quantity", event.target.value)
+                  }
                   className={inputClassName}
                   placeholder="Pieces, cartons, CBM, weight"
                 />
@@ -254,7 +275,9 @@ export default function ContactPage() {
                 <input
                   required
                   value={form.deliveryCity}
-                  onChange={(event) => updateField("deliveryCity", event.target.value)}
+                  onChange={(event) =>
+                    updateField("deliveryCity", event.target.value)
+                  }
                   className={inputClassName}
                   placeholder="Surat, Mumbai, Delhi..."
                 />
@@ -262,7 +285,9 @@ export default function ContactPage() {
               <FormField label="Supplier / Product Link">
                 <input
                   value={form.supplierLink}
-                  onChange={(event) => updateField("supplierLink", event.target.value)}
+                  onChange={(event) =>
+                    updateField("supplierLink", event.target.value)
+                  }
                   className={inputClassName}
                   placeholder="Alibaba / 1688 / supplier URL"
                 />
@@ -270,7 +295,9 @@ export default function ContactPage() {
               <FormField label="Preferred Shipping Mode">
                 <select
                   value={form.shippingMode}
-                  onChange={(event) => updateField("shippingMode", event.target.value)}
+                  onChange={(event) =>
+                    updateField("shippingMode", event.target.value)
+                  }
                   className={inputClassName}
                 >
                   <option>Need guidance</option>
@@ -319,16 +346,17 @@ export default function ContactPage() {
 
             {submitted ? (
               <p className="mt-4 rounded-md bg-orange-100 px-4 py-3 text-sm font-medium text-orange-900 dark:bg-orange-950 dark:text-orange-100">
-                Your email app has been opened with the full inquiry filled in. Please press send
-                there, or use the WhatsApp button for instant sharing.
+                Your email app has been opened with the full inquiry filled in.
+                Please press send there, or use the WhatsApp button for instant
+                sharing.
               </p>
             ) : null}
 
             <div className="mt-6 flex items-start gap-3 rounded-lg bg-white p-4 text-sm leading-6 text-slate-700 dark:bg-slate-950 dark:text-slate-300">
               <Ship className="mt-0.5 size-5 shrink-0 text-orange-600 dark:text-orange-300" />
               <p>
-                For urgent shipments, WhatsApp is fastest. For detailed import quotes, email gives
-                us all fields in one clear message.
+                For urgent shipments, WhatsApp is fastest. For detailed import
+                quotes, email gives us all fields in one clear message.
               </p>
             </div>
           </form>
@@ -352,7 +380,9 @@ function FormField({
 }) {
   return (
     <label className={`block ${className}`}>
-      <span className="mb-2 block text-sm font-bold text-slate-900 dark:text-white">{label}</span>
+      <span className="mb-2 block text-sm font-bold text-slate-900 dark:text-white">
+        {label}
+      </span>
       {children}
     </label>
   );

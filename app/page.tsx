@@ -71,12 +71,12 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden bg-white dark:bg-slate-950">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-4 sm:px-6 sm:py-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-8 lg:py-12">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-4 sm:px-6 sm:py-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-8 lg:py-8">
           <div>
             <p className="text-sm font-bold uppercase tracking-wide text-orange-600 dark:text-orange-300">
               {t("home.heroEyebrow")}
             </p>
-            <h1 className="mt-5 max-w-3xl text-3xl font-black leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-3 max-w-3xl text-4xl font-black leading-tight text-slate-950 dark:text-white">
               {t("home.heroTitleStart")}{" "}
               <span className="block text-orange-600 dark:text-orange-300">
                 {t("home.heroTitleHighlight")}
